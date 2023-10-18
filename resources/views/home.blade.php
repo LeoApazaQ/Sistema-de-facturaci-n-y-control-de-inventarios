@@ -12,7 +12,7 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    {{ __('Estas Logeado con exito papulince!!') }}
+                    {{ __('Logeo Exitoso') }}
                 </div>
             </div>
         </div>

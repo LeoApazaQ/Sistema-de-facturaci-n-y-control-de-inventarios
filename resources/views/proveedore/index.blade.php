@@ -13,15 +13,20 @@ Proveedores
                     <div style="display: flex; justify-content: space-between; align-items: center;">
 
                         <span id="card_title">
-                            {{ __('Proveedore') }}
+                            {{ __('Proveedores') }}
                         </span>
-
-                        <div class="float-right">
-                            <a href="{{ route('proveedores.create') }}" class="btn btn-primary btn-sm float-right"
-                                data-placement="left">
-                                {{ __('Create New') }}
-                            </a>
-                        </div>
+                        <form action="{{ route('proveedores.index') }}" method="GET">
+                            <div class="btn-group">
+                                <input type="text" name="busqueda" class="form-control">
+                                <input type="submit" value="enviar" class="btn btn-info">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="float-left">
+                        <a href="{{ route('proveedores.create') }}" class="btn btn-primary btn-sm float-right"
+                            data-placement="left">
+                            {{ __('Create New') }}
+                        </a>
                     </div>
                 </div>
                 @if ($message = Session::get('success'))
@@ -36,16 +41,14 @@ Proveedores
                             <thead class="thead">
                                 <tr>
                                     <th>No</th>
-
                                     <th>Documento</th>
-                                    <th>Cod Tipo Documento</th>
+                                    <th>Tipo Documento</th>
                                     <th>Nombre</th>
                                     <th>Apellido</th>
                                     <th>Nombre Comercial</th>
                                     <th>Direccion</th>
-                                    <th>Cod Ciudad</th>
-
-                                    <th></th>
+                                    <th>Ciudad</th>
+                                    <th>Acciones</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -54,12 +57,12 @@ Proveedores
                                     <td>{{ ++$i }}</td>
 
                                     <td>{{ $proveedore->documento }}</td>
-                                    <td>{{ $proveedore->cod_tipo_documento }}</td>
+                                    <td>{{ $proveedore->tipoDocumento->descripcion }}</td>
                                     <td>{{ $proveedore->nombre }}</td>
                                     <td>{{ $proveedore->apellido }}</td>
                                     <td>{{ $proveedore->nombre_comercial }}</td>
                                     <td>{{ $proveedore->direccion }}</td>
-                                    <td>{{ $proveedore->cod_ciudad }}</td>
+                                    <td>{{ $proveedore->ciudad->nombre_ciudad }}</td>
 
                                     <td>
                                         <form action="{{ route('proveedores.destroy',$proveedore->id) }}" method="POST">

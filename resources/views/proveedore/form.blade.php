@@ -31,12 +31,15 @@
             {{ Form::text('direccion', $proveedore->direccion, ['class' => 'form-control' . ($errors->has('direccion') ? ' is-invalid' : ''), 'placeholder' => 'Direccion']) }}
             {!! $errors->first('direccion', '<div class="invalid-feedback">:message</div>') !!}
         </div>
-        <div class="form-group">
+        <div>
             {{ Form::label('cod_ciudad') }}
-            {{ Form::text('cod_ciudad', $proveedore->cod_ciudad, ['class' => 'form-control' . ($errors->has('cod_ciudad') ? ' is-invalid' : ''), 'placeholder' => 'Cod Ciudad']) }}
-            {!! $errors->first('cod_ciudad', '<div class="invalid-feedback">:message</div>') !!}
+            <select name="cod_ciudad" class="form-select">
+                @foreach($ciudades as $ciudad)
+                    <option value="{{ $ciudad->id }}">{{ $ciudad->nombre_ciudad }}</option>
+                @endforeach
+            </select>
         </div>
-
+        
     </div>
     <div class="box-footer mt20">
         <button type="submit" class="btn btn-primary">{{ __('Submit') }}</button>

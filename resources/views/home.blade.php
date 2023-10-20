@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.principal')
 
 @section('content')
 <div class="container">
@@ -12,7 +12,12 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    {{ __('Logeo Exitoso') }}
+                    {{ __('You are logged in!') }}
+                    <script>
+                        setTimeout(function() {
+                            window.location.href = 'index';
+                        }, 3000);
+                    </script>
                 </div>
             </div>
         </div>

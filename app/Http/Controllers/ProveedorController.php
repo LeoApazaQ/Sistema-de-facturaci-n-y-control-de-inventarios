@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Ciudad;
+use App\Models\Proveedor;
 use App\Models\Proveedore;
 use Illuminate\Http\Request;
 
@@ -16,9 +18,16 @@ class ProveedorController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $proveedores = Proveedore::paginate();
+        $busqueda = $request->busqueda;
+
+        $proveedores = Proveedore::where('documento','LIKE','%'.$busqueda.'%')
+                            ->orwhere('nombre','LIKE','%'.$busqueda.'%')
+                            ->orwhere('apellido','LIKE','%'.$busqueda.'%')
+                            ->latest('id')
+                            ->paginate();
+        $proveedores->load('ciudad', 'tipoDocumento');
 
         return view('proveedore.index', compact('proveedores'))
             ->with('i', (request()->input('page', 1) - 1) * $proveedores->perPage());
@@ -32,7 +41,9 @@ class ProveedorController extends Controller
     public function create()
     {
         $proveedore = new Proveedore();
-        return view('proveedore.create', compact('proveedore'));
+        $ciudades = Ciudad::all();
+
+        return view('proveedore.create', compact('proveedore', 'ciudades'));
     }
 
     /**
@@ -48,7 +59,7 @@ class ProveedorController extends Controller
         $proveedore = Proveedore::create($request->all());
 
         return redirect()->route('proveedores.index')
-            ->with('success', 'Proveedore created successfully.');
+            ->with('success', 'Proveedor creado con exito.');
     }
 
     /**
@@ -73,8 +84,8 @@ class ProveedorController extends Controller
     public function edit($id)
     {
         $proveedore = Proveedore::find($id);
-
-        return view('proveedore.edit', compact('proveedore'));
+        $ciudades = Ciudad::all();
+        return view('proveedore.edit', compact('proveedore', 'ciudades'));
     }
 
     /**

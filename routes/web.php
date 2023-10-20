@@ -26,11 +26,12 @@ Route::get('/index', function () {
     return view('index');
 })->name('inicio');
 
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
 Auth::routes();
 
-Route::resource('/clientes', ClienteController::class);
-Route::resource('/proveedores', ProveedorController::class);
-Route::resource('/articulos', ControllersArticuloController::class);
+Route::resource('/clientes', ClienteController::class)->middleware('auth');
+Route::resource('/proveedores', ProveedorController::class)->middleware('auth');
+Route::resource('/articulos', ControllersArticuloController::class)->middleware('auth');
 
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

@@ -60,7 +60,7 @@
                         <li><a href="#actualizar_stock_articulos">Actualzar stock articulos</a></li>
                     </ul>
                 </li>
-                <li><a href="#Realizar_venta">Realizar Venta</a></li>
+                <li><a href="{{ Route('factura.index') }}">Realizar Venta</a></li>
                 <li><a href="#Devoluciones">Devoluciones</a></li>
                 <li><a href="#Lista_Proveedores">Lista de proveedores</a></li>
             </ul>

@@ -10,7 +10,9 @@
             {{ Form::label('tipo_documento') }}
             <select name="cod_tipo_documento" class="form-select">
                 @foreach($documentos as $documento)
-                    <option value="{{ $documento->id }}">{{ $documento->descripcion }}</option>
+                    <option value="{{ $documento->id }}" {{ $documento->id == $proveedore->cod_tipo_documento ? 'selected' : '' }}>
+                        {{ $documento->descripcion }}
+                    </option>
                 @endforeach
             </select>
         </div>
@@ -38,7 +40,9 @@
             {{ Form::label('cod_ciudad') }}
             <select name="cod_ciudad" class="form-select">
                 @foreach($ciudades as $ciudad)
-                    <option value="{{ $ciudad->id }}">{{ $ciudad->nombre_ciudad }}</option>
+                    <option value="{{ $ciudad->id }}" {{ $ciudad->id == $proveedore->cod_ciudad ? 'selected' : '' }}>
+                        {{ $ciudad->nombre_ciudad }}
+                    </option>
                 @endforeach
             </select>
         </div>

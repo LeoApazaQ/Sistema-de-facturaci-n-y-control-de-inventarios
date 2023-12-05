@@ -25,7 +25,7 @@
                             {{ $proveedore->documento }}
                         </div>
                         <div class="form-group">
-                            <strong>Cod Tipo Documento:</strong>
+                            <strong>Tipo Documento:</strong>
                             {{ $proveedore->tipoDocumento->descripcion }}
                         </div>
                         <div class="form-group">
@@ -45,7 +45,7 @@
                             {{ $proveedore->direccion }}
                         </div>
                         <div class="form-group">
-                            <strong>Cod Ciudad:</strong>
+                            <strong>Ciudad:</strong>
                             {{ $proveedore->ciudad->nombre_ciudad }}
                         </div>
 

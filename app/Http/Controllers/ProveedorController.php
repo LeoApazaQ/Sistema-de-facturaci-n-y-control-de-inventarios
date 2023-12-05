@@ -76,8 +76,7 @@ class ProveedorController extends Controller
      */
     public function show($id)
     {
-        $proveedore = Proveedore::find($id);
-        
+        $proveedore = Proveedore::find($id); 
         
         return view('proveedore.show', compact('proveedore'));
     }
@@ -92,8 +91,7 @@ class ProveedorController extends Controller
     {
         $proveedore = Proveedore::find($id);
         $ciudades = Ciudad::all();
-        $documentos = TipoDocumento::all();
-        
+        $documentos = TipoDocumento::all();        
 
         return view('proveedore.edit', compact('proveedore', 'ciudades', 'documentos'));
     }

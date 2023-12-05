@@ -6,10 +6,13 @@
             {{ Form::text('documento', $proveedore->documento, ['class' => 'form-control' . ($errors->has('documento') ? ' is-invalid' : ''), 'placeholder' => 'Documento']) }}
             {!! $errors->first('documento', '<div class="invalid-feedback">:message</div>') !!}
         </div>
-        <div class="form-group">
-            {{ Form::label('cod_tipo_documento') }}
-            {{ Form::text('cod_tipo_documento', $proveedore->cod_tipo_documento, ['class' => 'form-control' . ($errors->has('cod_tipo_documento') ? ' is-invalid' : ''), 'placeholder' => 'Cod Tipo Documento']) }}
-            {!! $errors->first('cod_tipo_documento', '<div class="invalid-feedback">:message</div>') !!}
+        <div>
+            {{ Form::label('tipo_documento') }}
+            <select name="cod_tipo_documento" class="form-select">
+                @foreach($documentos as $documento)
+                    <option value="{{ $documento->id }}">{{ $documento->descripcion }}</option>
+                @endforeach
+            </select>
         </div>
         <div class="form-group">
             {{ Form::label('nombre') }}

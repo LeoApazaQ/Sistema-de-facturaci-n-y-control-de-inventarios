@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Ciudad;
 use App\Models\Proveedor;
 use App\Models\Proveedore;
+use App\Models\Tipo_Documento;
+use App\Models\TipoDocumento;
 use Illuminate\Http\Request;
 
 /**
@@ -27,7 +29,10 @@ class ProveedorController extends Controller
                             ->orwhere('apellido','LIKE','%'.$busqueda.'%')
                             ->latest('id')
                             ->paginate();
-        $proveedores->load('ciudad', 'tipoDocumento');
+
+        //$proveedores->load('ciudad', 'tipoDocumento');
+
+        //$proveedores = Proveedor::find(1);
 
         return view('proveedore.index', compact('proveedores'))
             ->with('i', (request()->input('page', 1) - 1) * $proveedores->perPage());
@@ -42,8 +47,9 @@ class ProveedorController extends Controller
     {
         $proveedore = new Proveedore();
         $ciudades = Ciudad::all();
+        $documentos = TipoDocumento::all();
 
-        return view('proveedore.create', compact('proveedore', 'ciudades'));
+        return view('proveedore.create', compact('proveedore', 'ciudades', 'documentos'));
     }
 
     /**

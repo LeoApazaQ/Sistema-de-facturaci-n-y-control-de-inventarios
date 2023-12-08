@@ -38,7 +38,7 @@
                                         
 										<th>Descripcion Forma Pago</th>
 
-                                        <th></th>
+                                        <th style="width: 500px;">Acciones</th>
                                     </tr>
                                 </thead>
                                 <tbody>

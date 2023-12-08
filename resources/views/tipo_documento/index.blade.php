@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('template_title')
-    Ciudades
+    Tipo Documento
 @endsection
 
 @section('content')
@@ -11,14 +11,16 @@
                 <div class="card">
                     <div class="card-header">
                         <div style="display: flex; justify-content: space-between; align-items: center;">
+
                             <span id="card_title">
-                                {{ __('Ciudades') }}
+                                {{ __('Tipo Documento') }}
                             </span>
-                                <div class="float-right">
-                                    <a href="{{ route('ciudades.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
-                                        {{ __('Create New') }}
-                                    </a>
-                                </div>
+
+                             <div class="float-right">
+                                <a href="{{ route('tipo_documentos.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
+                                  {{ __('Create New') }}
+                                </a>
+                              </div>
                         </div>
                     </div>
                     @if ($message = Session::get('success'))
@@ -26,6 +28,7 @@
                             <p>{{ $message }}</p>
                         </div>
                     @endif
+
                     <div class="card-body">
                         <div class="table-responsive">
                             <table class="table table-striped table-hover">
@@ -33,22 +36,22 @@
                                     <tr>
                                         <th>No</th>
                                         
-										<th>Nombre Ciudad</th>
-                                        
+										<th>Descripcion</th>
+
                                         <th style="width: 500px;">Acciones</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($ciudades as $ciudade)
+                                    @foreach ($tipoDocumentos as $tipoDocumento)
                                         <tr>
                                             <td>{{ ++$i }}</td>
                                             
-											<td>{{ $ciudade->nombre_ciudad }}</td>
+											<td>{{ $tipoDocumento->descripcion }}</td>
 
                                             <td>
-                                                <form action="{{ route('ciudades.destroy',$ciudade->id) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('ciudades.show',$ciudade->id) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Show') }}</a>
-                                                    <a class="btn btn-sm btn-success" href="{{ route('ciudades.edit',$ciudade->id) }}"><i class="fa fa-fw fa-edit"></i> {{ __('Edit') }}</a>
+                                                <form action="{{ route('tipo_documentos.destroy',$tipoDocumento->id) }}" method="POST">
+                                                    <a class="btn btn-sm btn-primary " href="{{ route('tipo_documentos.show',$tipoDocumento->id) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Show') }}</a>
+                                                    <a class="btn btn-sm btn-success" href="{{ route('tipo_documentos.edit',$tipoDocumento->id) }}"><i class="fa fa-fw fa-edit"></i> {{ __('Edit') }}</a>
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> {{ __('Delete') }}</button>
@@ -61,7 +64,7 @@
                         </div>
                     </div>
                 </div>
-                {!! $ciudades->links() !!}
+                {!! $tipoDocumentos->links() !!}
             </div>
         </div>
     </div>

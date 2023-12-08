@@ -58,6 +58,7 @@
                         <li><a href="{{ Route('articulos.index') }}">Registro de articulos</a></li>
                         <li><a href="{{ Route('proveedores.index') }}">Registro de proveedores</a></li>
                         <li><a href="{{ Route('ciudades.index') }}">Registro de ciudades</a></li>
+                        <li><a href="{{ Route('tipo_documentos.index') }}">Registro de tipo_documentos</a></li>
                     </ul>
                 </li>
                 <li><a href="{{ Route('factura.index') }}">Realizar Venta</a></li>

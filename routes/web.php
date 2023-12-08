@@ -7,6 +7,8 @@ use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\FacturaController;
 use App\Http\Controllers\ProveedorController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\TipoDocumentoController;
+use App\Models\Tipo_Documento;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 /*
@@ -37,6 +39,8 @@ Route::resource('/clientes', ClienteController::class)->middleware('auth');
 Route::resource('/proveedores', ProveedorController::class)->middleware('auth');
 Route::resource('/articulos', ControllersArticuloController::class)->middleware('auth');
 Route::resource('/ciudades', CiudadeController::class)->middleware('auth');
+Route::resource('/tipo_documentos', TipoDocumentoController::class)->middleware('auth');
+
 
 
 

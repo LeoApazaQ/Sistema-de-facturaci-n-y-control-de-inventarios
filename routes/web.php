@@ -8,6 +8,7 @@ use App\Http\Controllers\FacturaController;
 use App\Http\Controllers\FormaPagoController;
 use App\Http\Controllers\ProveedorController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\TipoArticuloController;
 use App\Http\Controllers\TipoDocumentoController;
 use App\Models\Tipo_Documento;
 use Illuminate\Support\Facades\Auth;
@@ -42,6 +43,7 @@ Route::resource('/articulos', ControllersArticuloController::class)->middleware(
 Route::resource('/ciudades', CiudadeController::class)->middleware('auth');
 Route::resource('/tipo_documentos', TipoDocumentoController::class)->middleware('auth');
 Route::resource('/forma_pagos', FormaPagoController::class)->middleware('auth');
+Route::resource('/tipo_articulos', TipoArticuloController::class)->middleware('auth');
 
 
 

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\articuloController;
 use App\Http\Controllers\ArticuloController as ControllersArticuloController;
+use App\Http\Controllers\CiudadeController;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\FacturaController;
 use App\Http\Controllers\ProveedorController;
@@ -35,5 +36,7 @@ Route::resource('/factura', FacturaController::class)->middleware('auth');
 Route::resource('/clientes', ClienteController::class)->middleware('auth');
 Route::resource('/proveedores', ProveedorController::class)->middleware('auth');
 Route::resource('/articulos', ControllersArticuloController::class)->middleware('auth');
+Route::resource('/ciudades', CiudadeController::class)->middleware('auth');
+
 
 

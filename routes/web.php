@@ -5,6 +5,7 @@ use App\Http\Controllers\ArticuloController as ControllersArticuloController;
 use App\Http\Controllers\CiudadeController;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\FacturaController;
+use App\Http\Controllers\FormaPagoController;
 use App\Http\Controllers\ProveedorController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\TipoDocumentoController;
@@ -40,6 +41,8 @@ Route::resource('/proveedores', ProveedorController::class)->middleware('auth');
 Route::resource('/articulos', ControllersArticuloController::class)->middleware('auth');
 Route::resource('/ciudades', CiudadeController::class)->middleware('auth');
 Route::resource('/tipo_documentos', TipoDocumentoController::class)->middleware('auth');
+Route::resource('/forma_pagos', FormaPagoController::class)->middleware('auth');
+
 
 
 

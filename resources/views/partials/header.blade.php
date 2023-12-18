@@ -44,10 +44,10 @@
             <ul class="nav sidebar-nav">
                 <div class="sidebar-header">
                     <div class="sidebar-brand">
-                        <a href="#">Brand</a>
+                        <a href="index">Home</a>
                     </div>
                 </div>
-                <li><a href="#home">Home</a></li>
+                <li><a href="index">Home</a></li>
                 <li><a href="#Buscar_clientes">Busqueda de clientes</a></li>
                 <li><a href="#Listar_articulos">Lista de articulos</a></li>
                 <li class="dropdown">

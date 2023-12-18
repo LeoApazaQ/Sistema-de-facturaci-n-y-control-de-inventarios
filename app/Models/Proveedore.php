@@ -58,9 +58,9 @@ class Proveedore extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
-    public function ciudade()
+    public function ciudad()
     {
-        return $this->hasOne('App\Models\Ciudade', 'id', 'cod_ciudad');
+        return $this->hasOne('App\Models\Ciudad', 'id', 'cod_ciudad');
     }
     
     /**

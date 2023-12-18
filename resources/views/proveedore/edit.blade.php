@@ -21,7 +21,6 @@
                             @csrf
 
                             @include('proveedore.form')
-
                         </form>
                     </div>
                 </div>

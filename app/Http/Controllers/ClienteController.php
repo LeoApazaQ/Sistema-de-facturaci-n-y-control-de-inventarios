@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Cliente;
 use Illuminate\Http\Request;
 
+
 /**
  * Class ClienteController
  * @package App\Http\Controllers
@@ -16,9 +17,16 @@ class ClienteController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $clientes = Cliente::paginate();
+        $busqueda = $request->busqueda;
+
+        $clientes = Cliente::where('documento','LIKE','%'.$busqueda.'%')
+                            ->orwhere('nombres','LIKE','%'.$busqueda.'%')
+                            ->orwhere('apellidos','LIKE','%'.$busqueda.'%')
+                            ->latest('id')
+                            ->paginate();
+        $clientes->load('ciudad', 'tipoDocumento');
 
         return view('cliente.index', compact('clientes'))
             ->with('i', (request()->input('page', 1) - 1) * $clientes->perPage());

@@ -6,10 +6,15 @@
             {{ Form::text('documento', $cliente->documento, ['class' => 'form-control' . ($errors->has('documento') ? ' is-invalid' : ''), 'placeholder' => 'Documento']) }}
             {!! $errors->first('documento', '<div class="invalid-feedback">:message</div>') !!}
         </div>
-        <div class="form-group">
-            {{ Form::label('cod_tipo_documento') }}
-            {{ Form::text('cod_tipo_documento', $cliente->cod_tipo_documento, ['class' => 'form-control' . ($errors->has('cod_tipo_documento') ? ' is-invalid' : ''), 'placeholder' => 'Cod Tipo Documento']) }}
-            {!! $errors->first('cod_tipo_documento', '<div class="invalid-feedback">:message</div>') !!}
+        <div>
+            {{ Form::label('tipo_documento') }}
+            <select name="cod_tipo_documento" class="form-select">
+                @foreach($documentos as $documento)
+                    <option value="{{ $documento->id }}" {{ $documento->id == $cliente->cod_tipo_documento ? 'selected' : '' }}>
+                        {{ $documento->descripcion }}
+                    </option>
+                @endforeach
+            </select>
         </div>
         <div class="form-group">
             {{ Form::label('nombres') }}
@@ -26,10 +31,15 @@
             {{ Form::text('direccion', $cliente->direccion, ['class' => 'form-control' . ($errors->has('direccion') ? ' is-invalid' : ''), 'placeholder' => 'Direccion']) }}
             {!! $errors->first('direccion', '<div class="invalid-feedback">:message</div>') !!}
         </div>
-        <div class="form-group">
+        <div>
             {{ Form::label('cod_ciudad') }}
-            {{ Form::text('cod_ciudad', $cliente->cod_ciudad, ['class' => 'form-control' . ($errors->has('cod_ciudad') ? ' is-invalid' : ''), 'placeholder' => 'Cod Ciudad']) }}
-            {!! $errors->first('cod_ciudad', '<div class="invalid-feedback">:message</div>') !!}
+            <select name="cod_ciudad" class="form-select">
+                @foreach($ciudades as $ciudad)
+                    <option value="{{ $ciudad->id }}" {{ $ciudad->id == $cliente->cod_ciudad ? 'selected' : '' }}>
+                        {{ $ciudad->nombre_ciudad }}
+                    </option>
+                @endforeach
+            </select>
         </div>
         <div class="form-group">
             {{ Form::label('telefono') }}

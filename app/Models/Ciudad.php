@@ -22,6 +22,11 @@ class Ciudad extends Model
         return $this->hasMany(Proveedor::class);
     }
 
+    public function proveedore()//nuevo
+    {
+        return $this->hasMany(Proveedore::class);
+    }
+
     public function clientes()
     {
         return $this->hasMany(Cliente::class);

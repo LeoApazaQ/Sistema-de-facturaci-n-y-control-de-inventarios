@@ -17,7 +17,6 @@
                             <a class="btn btn-primary" href="{{ route('articulos.index') }}"> {{ __('Back') }}</a>
                         </div>
                     </div>
-
                     <div class="card-body">
                         
                         <div class="form-group">
@@ -37,18 +36,17 @@
                             {{ $articulo->stock }}
                         </div>
                         <div class="form-group">
-                            <strong>Cod Tipo Articulo:</strong>
-                            {{ $articulo->cod_tipo_articulo }}
+                            <strong>Tipo Articulo:</strong>
+                            {{ $articulo->tipoArticulo->descripcion_articulo }}
                         </div>
                         <div class="form-group">
-                            <strong>Cod Proveedor:</strong>
-                            {{ $articulo->cod_proveedor }}
+                            <strong>Proveedor:</strong>
+                            {{ $articulo->proveedore->nombre_comercial }}
                         </div>
                         <div class="form-group">
                             <strong>Fecha Ingreso:</strong>
                             {{ $articulo->fecha_ingreso }}
                         </div>
-
                     </div>
                 </div>
             </div>

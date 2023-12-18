@@ -26,7 +26,7 @@
                         </div>
                         <div class="form-group">
                             <strong>Cod Tipo Documento:</strong>
-                            {{ $cliente->cod_tipo_documento }}
+                            {{ $cliente->tipoDocumento->descripcion }}
                         </div>
                         <div class="form-group">
                             <strong>Nombres:</strong>
@@ -42,7 +42,7 @@
                         </div>
                         <div class="form-group">
                             <strong>Cod Ciudad:</strong>
-                            {{ $cliente->cod_ciudad }}
+                            {{ $cliente->ciudad->nombre_ciudad }}
                         </div>
                         <div class="form-group">
                             <strong>Telefono:</strong>

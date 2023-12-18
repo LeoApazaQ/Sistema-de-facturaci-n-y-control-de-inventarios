@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Articulo;
+use App\Models\Proveedore;
+use App\Models\TipoArticulo;
 use Illuminate\Http\Request;
 
 /**
@@ -19,8 +21,10 @@ class ArticuloController extends Controller
     public function index()
     {
         $articulos = Articulo::paginate();
-
-        return view('articulo.index', compact('articulos'))
+        $tiposArticulo = TipoArticulo::all();
+        $proveedores = Proveedore::all();  
+        
+        return view('articulo.index', compact('articulos', 'tiposArticulo', 'proveedores'))
             ->with('i', (request()->input('page', 1) - 1) * $articulos->perPage());
     }
 
@@ -32,7 +36,10 @@ class ArticuloController extends Controller
     public function create()
     {
         $articulo = new Articulo();
-        return view('articulo.create', compact('articulo'));
+        $tiposArticulo = TipoArticulo::all();
+        $proveedores = Proveedore::all();  
+        
+        return view('articulo.create', compact('articulo', 'tiposArticulo', 'proveedores'));
     }
 
     /**
@@ -73,8 +80,10 @@ class ArticuloController extends Controller
     public function edit($id)
     {
         $articulo = Articulo::find($id);
+        $tiposArticulo = TipoArticulo::all();
+        $proveedores = Proveedore::all();     
 
-        return view('articulo.edit', compact('articulo'));
+        return view('articulo.edit', compact('articulo', 'tiposArticulo', 'proveedores'));
     }
 
     /**

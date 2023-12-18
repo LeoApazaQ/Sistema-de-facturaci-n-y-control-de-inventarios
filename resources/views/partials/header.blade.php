@@ -57,10 +57,13 @@
                         <li><a href="{{ Route('clientes.index') }}">Registro de clientes</a></li>
                         <li><a href="{{ Route('articulos.index') }}">Registro de articulos</a></li>
                         <li><a href="{{ Route('proveedores.index') }}">Registro de proveedores</a></li>
-                        <li><a href="#actualizar_stock_articulos">Actualzar stock articulos</a></li>
+                        <li><a href="{{ Route('ciudades.index') }}">Registro de ciudades</a></li>
+                        <li><a href="{{ Route('tipo_documentos.index') }}">Registro de tipo_documentos</a></li>
+                        <li><a href="{{ Route('forma_pagos.index') }}">Registro forma de pago</a></li>
+                        <li><a href="{{ Route('tipo_articulos.index') }}">Registro tipo de articulo</a></li>
                     </ul>
                 </li>
-                <li><a href="#Realizar_venta">Realizar Venta</a></li>
+                <li><a href="{{ Route('factura.index') }}">Realizar Venta</a></li>
                 <li><a href="#Devoluciones">Devoluciones</a></li>
                 <li><a href="#Lista_Proveedores">Lista de proveedores</a></li>
             </ul>

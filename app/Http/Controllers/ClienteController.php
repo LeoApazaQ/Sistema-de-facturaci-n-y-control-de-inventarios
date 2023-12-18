@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Ciudad;
 use App\Models\Cliente;
+use App\Models\TipoDocumento;
 use Illuminate\Http\Request;
 
 
@@ -26,11 +28,14 @@ class ClienteController extends Controller
                             ->orwhere('apellidos','LIKE','%'.$busqueda.'%')
                             ->latest('id')
                             ->paginate();
-        $clientes->load('ciudad', 'tipoDocumento');
+
+        //$clientes->load('ciudad', 'tipoDocumento');
 
         return view('cliente.index', compact('clientes'))
             ->with('i', (request()->input('page', 1) - 1) * $clientes->perPage());
     }
+
+
 
     /**
      * Show the form for creating a new resource.
@@ -40,7 +45,10 @@ class ClienteController extends Controller
     public function create()
     {
         $cliente = new Cliente();
-        return view('cliente.create', compact('cliente'));
+        $ciudades = Ciudad::all();
+        $documentos = TipoDocumento::all();
+
+        return view('cliente.create', compact('cliente', 'ciudades', 'documentos'));
     }
 
     /**
@@ -81,8 +89,10 @@ class ClienteController extends Controller
     public function edit($id)
     {
         $cliente = Cliente::find($id);
+        $ciudades = Ciudad::all();
+        $documentos = TipoDocumento::all();   
 
-        return view('cliente.edit', compact('cliente'));
+        return view('cliente.edit', compact('cliente', 'ciudades', 'documentos'));
     }
 
     /**

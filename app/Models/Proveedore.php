@@ -48,21 +48,21 @@ class Proveedore extends Model
 
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
-    public function articulos()
-    {
-        return $this->hasMany('App\Models\Articulo', 'cod_proveedor', 'id');
-    }
-    
-    /**
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
     public function ciudad()
     {
         return $this->hasOne('App\Models\Ciudad', 'id', 'cod_ciudad');
     }
-    
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function articulos()
+    {
+        return $this->hasMany('App\Models\Articulo', 'cod_proveedor', 'id');
+    }
+        
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */

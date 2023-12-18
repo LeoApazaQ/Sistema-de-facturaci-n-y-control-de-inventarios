@@ -21,15 +21,25 @@
             {{ Form::text('stock', $articulo->stock, ['class' => 'form-control' . ($errors->has('stock') ? ' is-invalid' : ''), 'placeholder' => 'Stock']) }}
             {!! $errors->first('stock', '<div class="invalid-feedback">:message</div>') !!}
         </div>
-        <div class="form-group">
-            {{ Form::label('cod_tipo_articulo') }}
-            {{ Form::text('cod_tipo_articulo', $articulo->cod_tipo_articulo, ['class' => 'form-control' . ($errors->has('cod_tipo_articulo') ? ' is-invalid' : ''), 'placeholder' => 'Cod Tipo Articulo']) }}
-            {!! $errors->first('cod_tipo_articulo', '<div class="invalid-feedback">:message</div>') !!}
+        <div>
+            {{ Form::label('tipo_articulo') }}
+            <select name="cod_tipo_articulo"  class="form-select">
+                @foreach($tiposArticulo as $tipoArticulo)
+                    <option value="{{ $tipoArticulo->id }}" {{ $tipoArticulo->id == $articulo->cod_tipo_articulo ? 'selected' : '' }}>
+                        {{ $tipoArticulo->descripcion_articulo }}
+                    </option>
+                @endforeach
+            </select>
         </div>
-        <div class="form-group">
-            {{ Form::label('cod_proveedor') }}
-            {{ Form::text('cod_proveedor', $articulo->cod_proveedor, ['class' => 'form-control' . ($errors->has('cod_proveedor') ? ' is-invalid' : ''), 'placeholder' => 'Cod Proveedor']) }}
-            {!! $errors->first('cod_proveedor', '<div class="invalid-feedback">:message</div>') !!}
+        <div>
+            {{ Form::label('proveedor') }}
+            <select name="cod_proveedor"  class="form-select">
+                @foreach($proveedores as $proveedor)
+                    <option value="{{ $proveedor->id }}" {{ $proveedor->id == $articulo->cod_proveedor ? 'selected' : '' }}>
+                        {{ $proveedor->nombre_comercial }}
+                    </option>
+                @endforeach
+            </select>
         </div>
         <div class="form-group">
             {{ Form::label('fecha_ingreso') }}

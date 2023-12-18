@@ -2,9 +2,15 @@
 
 use App\Http\Controllers\articuloController;
 use App\Http\Controllers\ArticuloController as ControllersArticuloController;
+use App\Http\Controllers\CiudadeController;
 use App\Http\Controllers\ClienteController;
+use App\Http\Controllers\FacturaController;
+use App\Http\Controllers\FormaPagoController;
 use App\Http\Controllers\ProveedorController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\TipoArticuloController;
+use App\Http\Controllers\TipoDocumentoController;
+use App\Models\Tipo_Documento;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 /*
@@ -30,8 +36,16 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Auth::routes();
 
+Route::resource('/factura', FacturaController::class)->middleware('auth');
 Route::resource('/clientes', ClienteController::class)->middleware('auth');
 Route::resource('/proveedores', ProveedorController::class)->middleware('auth');
 Route::resource('/articulos', ControllersArticuloController::class)->middleware('auth');
+Route::resource('/ciudades', CiudadeController::class)->middleware('auth');
+Route::resource('/tipo_documentos', TipoDocumentoController::class)->middleware('auth');
+Route::resource('/forma_pagos', FormaPagoController::class)->middleware('auth');
+Route::resource('/tipo_articulos', TipoArticuloController::class)->middleware('auth');
+
+
+
 
 

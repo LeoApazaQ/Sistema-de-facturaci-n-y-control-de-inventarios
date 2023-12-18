@@ -40,8 +40,8 @@
                                         <th>Precio Venta</th>
                                         <th>Precio Costo</th>
                                         <th>Stock</th>
-                                        <th>Cod Tipo Articulo</th>
-                                        <th>Cod Proveedor</th>
+                                        <th>Tipo Articulo</th>
+                                        <th>Proveedor</th>
                                         <th>Fecha Ingreso</th>
                                         <th>Acciones</th>
                                     </tr>
@@ -55,10 +55,9 @@
                                             <td>{{ $articulo->precio_venta }}</td>
                                             <td>{{ $articulo->precio_costo }}</td>
                                             <td>{{ $articulo->stock }}</td>
-                                            <td>{{ $articulo->cod_tipo_articulo }}</td>
-                                            <td>{{ $articulo->cod_proveedor }}</td>
+                                            <td>{{ $articulo->tipoArticulo->descripcion_articulo }}</td>
+                                            <td>{{ $articulo->proveedore->nombre_comercial }}</td>
                                             <td>{{ $articulo->fecha_ingreso }}</td>
-
                                             <td>
                                                 <form action="{{ route('articulos.destroy', $articulo->id) }}"
                                                     method="POST">

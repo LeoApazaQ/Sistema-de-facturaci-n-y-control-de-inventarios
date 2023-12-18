@@ -5,10 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * Class TipoDocumento
+ * Class Ciudade
  *
  * @property $id
- * @property $descripcion
+ * @property $nombre_ciudad
  * @property $created_at
  * @property $updated_at
  *
@@ -17,11 +17,11 @@ use Illuminate\Database\Eloquent\Model;
  * @package App
  * @mixin \Illuminate\Database\Eloquent\Builder
  */
-class TipoDocumento extends Model
+class Ciudade extends Model
 {
     
     static $rules = [
-		'descripcion' => 'required',
+		'nombre_ciudad' => 'required',
     ];
 
     protected $perPage = 20;
@@ -31,7 +31,7 @@ class TipoDocumento extends Model
      *
      * @var array
      */
-    protected $fillable = ['descripcion'];
+    protected $fillable = ['nombre_ciudad'];
 
 
     /**
@@ -39,7 +39,7 @@ class TipoDocumento extends Model
      */
     public function clientes()
     {
-        return $this->hasMany('App\Models\Cliente', 'cod_tipo_documento', 'id');
+        return $this->hasMany('App\Models\Cliente', 'cod_ciudad', 'id');
     }
     
     /**
@@ -47,7 +47,7 @@ class TipoDocumento extends Model
      */
     public function proveedores()
     {
-        return $this->hasMany('App\Models\Proveedor', 'cod_tipo_documento', 'id');
+        return $this->hasMany('App\Models\Proveedore', 'cod_ciudad', 'id');
     }
     
 
